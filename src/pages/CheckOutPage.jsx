@@ -8,7 +8,7 @@ export function CheckOutPage() {
     <div className="checkout-header">
       <div className="header-content">
         <div className="checkout-header-left-section">
-          <a href="index.html">
+          <a href="/">
             <img className="logo" src="images/logo.png" />
             <img className="mobile-logo" src="images/mobile-logo.png" />
           </a>
@@ -16,7 +16,7 @@ export function CheckOutPage() {
 
         <div className="checkout-header-middle-section">
           Checkout (<a className="return-to-home-link"
-            href="index.html">3 items</a>)
+            href="/">3 items</a>)
         </div>
 
         <div className="checkout-header-right-section">
@@ -64,7 +64,7 @@ export function CheckOutPage() {
                   Choose a delivery option:
                 </div>
                 <div className="delivery-option">
-                  <input type="radio" checked
+                  <input type="radio" defaultChecked
                     className="delivery-option-input"
                     name="delivery-option-1" />
                   <div>
@@ -153,7 +153,7 @@ export function CheckOutPage() {
                   </div>
                 </div>
                 <div className="delivery-option">
-                  <input type="radio" checked className="delivery-option-input"
+                  <input type="radio" defaultChecked className="delivery-option-input"
                     name="delivery-option-2" />
                   <div>
                     <div className="delivery-option-date">
