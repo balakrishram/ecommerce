@@ -3,28 +3,23 @@ import { Header } from '../components/Header';
 import axios from 'axios'
 
 import { useEffect, useState } from 'react';
+import { formatCurrency } from '../utils/money';
 
-export function HomePage() {
+export function HomePage({ cart }) {
 
-  const [ products,setProducts ] = useState([]);
-  const [ cart,setCart ] = useState([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     axios('api/products')
-    .then((response) => {
-      setProducts(response.data);
-    });
-    axios('api/cart-items')
-    .then((response) => {
-      console.log(response.data);
-      setCart(response.data);
-    });
-  },[])
-  
+      .then((response) => {
+        setProducts(response.data);
+      });
+  }, [])
+
 
   return (
     <>
       <title>Homepage</title>
-      <Header cart = {cart} />
+      <Header cart={cart} />
 
       <div className="home-page">
         <div className="products-grid">
@@ -50,7 +45,7 @@ export function HomePage() {
                   </div>
 
                   <div className="product-price">
-                    ${(product.priceCents / 10).toFixed(2)}
+                    {formatCurrency(product.priceCents)}
                   </div>
 
                   <div className="product-quantity-container">
