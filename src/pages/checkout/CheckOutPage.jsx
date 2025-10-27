@@ -1,10 +1,10 @@
 import './CheckOutPage.css';
-import './checkout-header.css';
-import { formatCurrency } from '../utils/money';
-import { Link } from 'react-router-dom';
+import { formatCurrency } from '../../utils/money';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs'
+import { Header } from './Header';
+import { PaymentSummary } from './PaymentSummary';
 
 export function CheckOutPage({ cart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
@@ -24,29 +24,16 @@ export function CheckOutPage({ cart }) {
     <>
       <title>Checkout</title>
       <div className="checkout-header">
-        <div className="header-content">
-          <div className="checkout-header-left-section">
-            <Link to="/">
-              <img className="logo" src="images/logo.png" />
-              <img className="mobile-logo" src="images/mobile-logo.png" />
-            </Link>
-          </div>
-
-          <div className="checkout-header-middle-section">
-            Checkout (<Link className="return-to-home-link"
-              to="/">3 items</Link>)
-          </div>
-
-          <div className="checkout-header-right-section">
-            <img src="images/icons/checkout-lock-icon.png" />
-          </div>
-        </div>
+        <Header cart={cart} />
       </div>
 
+
       <div className="checkout-page">
+        
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
+
           <div className="order-summary">
 
             {deliveryOptions.length > 0 && cart.map((cartItem) => {
@@ -121,40 +108,10 @@ export function CheckOutPage({ cart }) {
 
           </div>
 
-          {paymentSummary && <div className="payment-summary">
-            <div className="payment-summary-title">
-              Payment Summary
-            </div>
-
-            <div className="payment-summary-row">
-              <div>Items ({paymentSummary.totalItems}):</div>
-              <div className="payment-summary-money">{formatCurrency(paymentSummary.productCostCents)}</div>
-            </div>
-
-            <div className="payment-summary-row">
-              <div>Shipping &amp; handling:</div>
-              <div className="payment-summary-money">{formatCurrency(paymentSummary.shippingCostCents)}</div>
-            </div>
-
-            <div className="payment-summary-row subtotal-row">
-              <div>Total before tax:</div>
-              <div className="payment-summary-money">{formatCurrency(paymentSummary.totalCostBeforeTaxCents)}</div>
-            </div>
-
-            <div className="payment-summary-row">
-              <div>Estimated tax (10%):</div>
-              <div className="payment-summary-money">{formatCurrency(paymentSummary.taxCents)}</div>
-            </div>
-
-            <div className="payment-summary-row total-row">
-              <div>Order total:</div>
-              <div className="payment-summary-money">{formatCurrency(paymentSummary.totalCostCents)}</div>
-            </div>
-
-            <button className="place-order-button button-primary">
-              Place your order
-            </button>
-          </div>}
+          {paymentSummary &&
+            <div className="payment-summary">
+              <PaymentSummary paymentSummary={paymentSummary}/>
+            </div>}
         </div>
       </div>
     </>
