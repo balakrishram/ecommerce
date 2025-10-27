@@ -1,6 +1,6 @@
 import { formatCurrency } from '../../utils/money';
 
-export function PaymentSummary({paymentSummary}) {
+export function PaymentSummary({ paymentSummary }) {
   return (
     <>
       <div className="payment-summary-title">

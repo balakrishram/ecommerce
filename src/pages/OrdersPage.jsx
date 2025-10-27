@@ -1,9 +1,10 @@
 import axios from 'axios'
+import dayjs from 'dayjs'
 import { useEffect, useState, Fragment } from 'react';
 import { Link } from 'react-router';
 import { Header } from '../components/Header';
 import './OrdersPage.css';
-import dayjs from 'dayjs'
+
 import { formatCurrency } from '../utils/money';
 
 export function OrdersPage({ cart }) {

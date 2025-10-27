@@ -1,9 +1,8 @@
-import './HomePage.css';
-import { Header } from '../../components/Header';
 import axios from 'axios'
-
 import { useEffect, useState } from 'react';
 import { ProductsGrid } from './ProductsGrid';
+import { Header } from '../../components/Header';
+import './HomePage.css';
 
 export function HomePage({ cart }) {
 

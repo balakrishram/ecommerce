@@ -1,30 +1,30 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-export function Header( {cart} ){
+export function Header({ cart }) {
   let totalQuantity = 0;
 
   (cart || []).forEach((cartItem) => {
     totalQuantity += cartItem.quantity;
   });
-  
+
   return (
-        <div className="header-content">
-          <div className="checkout-header-left-section">
-            <Link to="/">
-              <img className="logo" src="images/logo.png" />
-              <img className="mobile-logo" src="images/mobile-logo.png" />
-            </Link>
-          </div>
+    <div className="header-content">
+      <div className="checkout-header-left-section">
+        <Link to="/">
+          <img className="logo" src="images/logo.png" />
+          <img className="mobile-logo" src="images/mobile-logo.png" />
+        </Link>
+      </div>
 
-          <div className="checkout-header-middle-section">
-            Checkout (<Link className="return-to-home-link"
-              to="/">{totalQuantity} items</Link>)
-          </div>
+      <div className="checkout-header-middle-section">
+        Checkout (<Link className="return-to-home-link"
+          to="/">{totalQuantity} items</Link>)
+      </div>
 
-          <div className="checkout-header-right-section">
-            <img src="images/icons/checkout-lock-icon.png" />
-          </div>
-        </div>
+      <div className="checkout-header-right-section">
+        <img src="images/icons/checkout-lock-icon.png" />
+      </div>
+    </div>
   );
 }
