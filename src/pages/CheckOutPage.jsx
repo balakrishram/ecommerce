@@ -15,7 +15,7 @@ export function CheckOutPage({ cart }) {
       .then((response) => {
         setDeliveryOptions(response.data);
       });
-      axios.get('/api/payment-summary')
+    axios.get('/api/payment-summary')
       .then((response) => {
         setPaymentSummary(response.data);
       });
@@ -54,7 +54,7 @@ export function CheckOutPage({ cart }) {
               const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => {
                 return (deliveryOption.id === cartItem.deliveryOptionId);
               });
-              
+
               return (
                 <div key={cartItem.productId} className="cart-item-container">
                   <div className="delivery-date">
@@ -97,7 +97,7 @@ export function CheckOutPage({ cart }) {
                         }
                         return (
                           <div key={deliveryOption.id} className="delivery-option">
-                            <input type="radio" checked = {deliveryOption.id === cartItem.deliveryOptionId} readOnly
+                            <input type="radio" checked={deliveryOption.id === cartItem.deliveryOptionId} readOnly
                               className="delivery-option-input"
                               name={`delivery-option-${cartItem.productId}`} />
                             <div>
@@ -121,7 +121,7 @@ export function CheckOutPage({ cart }) {
 
           </div>
 
-          { paymentSummary && <div className="payment-summary">
+          {paymentSummary && <div className="payment-summary">
             <div className="payment-summary-title">
               Payment Summary
             </div>
@@ -154,7 +154,7 @@ export function CheckOutPage({ cart }) {
             <button className="place-order-button button-primary">
               Place your order
             </button>
-          </div> }
+          </div>}
         </div>
       </div>
     </>
