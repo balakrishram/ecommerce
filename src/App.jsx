@@ -19,7 +19,7 @@ function App() {
 return (
   <Routes>
     <Route path="/" element={<HomePage cart={cart} loadCart={loadCart}/>}></Route>
-    <Route path="/checkout" element={<CheckOutPage cart={cart} />}></Route>
+    <Route path="/checkout" element={<CheckOutPage cart={cart} loadCart={loadCart}/>}></Route>
     <Route path="/orders" element={<OrdersPage cart={cart} />}></Route>
     <Route path="/tracking" element={<TrackingPage cart={cart} />}></Route>
   </Routes>
