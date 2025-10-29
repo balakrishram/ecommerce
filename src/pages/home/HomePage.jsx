@@ -9,7 +9,7 @@ export function HomePage({ cart,loadCart }) {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const getHomePageData = async () => {
-      const response = await axios('api/products')
+      const response = await axios.get('api/products')
       setProducts(response.data);
     }
     getHomePageData();

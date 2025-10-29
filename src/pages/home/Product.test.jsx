@@ -6,6 +6,7 @@ import axios from 'axios';
 vi.mock('axios')
 
 describe('Product Component', () => {
+
   let loadCart = vi.fn();
   let product = {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -35,8 +36,6 @@ describe('Product Component', () => {
   });
 
   it('displays the product correctly', () => {
-
-
     render(<Product product={product} loadCart={loadCart} />);
 
     expect(screen.getByText("Black and Gray Athletic Cotton Socks - 6 Pairs")).toBeInTheDocument();
